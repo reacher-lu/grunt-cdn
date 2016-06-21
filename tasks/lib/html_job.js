@@ -20,7 +20,7 @@ HTMLJob.prototype.run = function () {
         var tagEnd = value[j].indexOf('>') + 1,
           tag = value[j].substring(0, tagEnd),
           rest = value[j].substring(tagEnd);                
-        value[j] = (tag.replace(htmlsplitter.rgx, replacer) + rest);
+        value[j] = (tag.replace(htmlsplitter.rgx, replacer+' ') + rest);
       }
       value = value.join(htmlsplitter.splitters[i]);
     }
