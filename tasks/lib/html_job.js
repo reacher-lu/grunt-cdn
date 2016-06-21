@@ -24,7 +24,7 @@ HTMLJob.prototype.run = function () {
       }
       value = value.join(htmlsplitter.splitters[i]);
     }
-    return decodeURIComponent(value);
+    return value;
     // return value;
   }, this.buffer);
 };
