@@ -59,8 +59,8 @@ module.exports = function(grunt) {
           grunt.verbose.writeln("skipping " + data.resource, data.reason);
         }).on("end", function (result) {
           // write the contents to destination
-          result = result.replace(/\%7B/g,'{').replace(/\%7D/g,'}');
-          grunt.file.write(destfile, result);
+          result = result.replace(/%([^0-9|a-f|A-F])/g,'%25$1').replace(/%([0-9|a-f][^0-9|a-f|A-F])/g,'%25$1');
+          grunt.file.write(destfile, decodeURIComponent(result));
             
           activeJobs--; // The job is done
           if (activeJobs === 0) { // Checking if all jobs are done
