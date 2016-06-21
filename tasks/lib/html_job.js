@@ -12,7 +12,7 @@ HTMLJob.prototype.run = function() {
     i, j, replacer;
 
   replacer = function(match, resource) {
-    return match.replace(resource, self._replace(resource /*, filename, relativeTo*/ )) + ' ';
+    return match.replace(resource + ' ', self._replace(resource /*, filename, relativeTo*/ ));
   };
   return ParserConfig.htmlsplitters.reduce(function(value, htmlsplitter) {
     for (i = 0; i < htmlsplitter.splitters.length; i++) {
